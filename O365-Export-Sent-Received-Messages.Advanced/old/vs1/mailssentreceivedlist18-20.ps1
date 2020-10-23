@@ -65,12 +65,12 @@ Write-host -foreground White "+ Sending report..." -nonewline
 # Send mail information
 
 $param = @{
-    SmtpServer = 'smtpserver.domain.com'
-    From = 'noreply@domain.com'
-    To = 'admin1@domain.com', 'admin2@domain.com'
-    Subject = "Monitoring Report from " + $datestart + " to " + $dateend
-    Body = "Hi,<br /> Please check the report from <b> " + $datestart + "</b> to <b>" + $dateend + "</b> in attachment <br /> Report generated automatically in " + $total + " users." 
-    Attachments = $output
+	SmtpServer = 'BHZ-APP-SMTP01.bms.com.br'
+	From = 'noreply@arcelormittal.com'
+	To = 'guilherme.lima@wipro.com', 'RASHEED.KHAN-PARTNER@ARCELORMITTAL.COM'
+	Subject = "Monitoring Report from " + $datestart + " to " + $dateend
+	Body = "Hi,<br /> Please check the report from <b> " + $datestart + "</b> to <b>" + $dateend + "</b> in attachment <br /> Report generated automatically in " + $total + " users." 
+	Attachments = $output
 }
 
 Send-MailMessage @param -bodyashtml

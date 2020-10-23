@@ -4,9 +4,9 @@
   
 ===========================================#>
 
-$InputFile = ".\INPUT-list.csv"
-$OutputValidUsers = ".\LOG-ValidUsers.csv"
-$OutputInvalidUsers = ".\LOG-InvalidUsers.csv"
+$file = ".\inputlist-test.csv"
+$validfile = ".\validatedusers.csv"
+$invalidfile = ".\notfoundusers.csv"
 
 <#===========================================
 
@@ -24,19 +24,19 @@ function MessageInfo1 ($texto1, $color){
 	write-host "$texto1" -foreground $color
 }
 
-function FileExistence ($InputFile){
+function FileExistence ($file){
 	do{
-		if (Test-Path -path $InputFile) {
-			MessageInfo3 "  - File " "$InputFile" " found successfully" "cyan"
-			$InputFileexist = $true
+		if (Test-Path -path $file) {
+			MessageInfo3 "  - File " "$file" " found successfully" "cyan"
+			$fileexist = $true
 			break
 		} else {
-			MessageInfo1 "  - File $InputFile not found ..." "Red"
-			MessageInfo3 "  - File " "$InputFile" " created succesfully" "cyan"
-			new-item -type file -name $InputFile |out-null
-			$InputFileexist = $false
+			MessageInfo1 "  - File $file not found ..." "Red"
+			MessageInfo3 "  - File " "$file" " created succesfully" "cyan"
+			new-item -type file -name $file |out-null
+			$fileexist = $false
 		}
-	}until ($InputFileexist = $true)
+	}until ($fileexist = $true)
 }
 	
 <#===========================================
@@ -49,11 +49,11 @@ clear-host
 write-host
 MessageInfo1 " + Checking file existence ..." "DarkCyan"
 
-remove-item $OutputValidUsers, $OutputInvalidUsers -erroraction SilentlyContinue
+remove-item $validfile, $invalidfile
 
-FileExistence $InputFile
-FileExistence $OutputValidUsers
-FileExistence $OutputInvalidUsers
+FileExistence $file
+FileExistence $validfile
+FileExistence $invalidfile
 
 <#===========================================
 
@@ -64,11 +64,11 @@ FileExistence $OutputInvalidUsers
 $x = $y = 0
 $global:erroraction = 'stop'
 
-$size = (get-content $InputFile).count -1
-$InputFileexist = $false
+$size = (get-content $file).count -1
+$fileexist = $false
 
-add-content $OutputValidUsers -value "Id; mail"
-add-content $OutputInvalidUsers -value "Id; mail"
+add-content $validfile -value "ID; mail"
+add-content $invalidfile -value "ID; mail"
 
 <#===========================================
 
@@ -79,18 +79,18 @@ add-content $OutputInvalidUsers -value "Id; mail"
 write-host
 MessageInfo1 " + Starting mailbox existence verification ..." "DarkCyan"
 
-import-csv $InputFile | foreach {
+import-csv $file | foreach {
 	$mail = $_.mail	 
 	try {
 		Get-mailbox -Identity $mail -erroraction 'stop' | Out-Null
 		$x +=1
 		MessageInfo3 "  - " "[V]" " ID [$x] - $mail exists." "green"
-		add-content $OutputValidUsers -value "$x; $mail"
+		add-content $validfile -value "$x; $mail"
 	} 
 	catch { 
 		$y += 1
-		MessageInfo1 "  - [F] ID [$y] - $mail not found!" "Red"
-		add-content $OutputInvalidUsers -value "$y; $mail"
+		MessageInfo1 "  - [F] ID [$y] - $mail doesn't exist!" "Red"
+		add-content $invalidfile -value "$y; $mail"
 	} 
 }
 
@@ -102,7 +102,7 @@ import-csv $InputFile | foreach {
  
 write-host
 MessageInfo1 " + Results ..." "DarkCyan"
-MessageInfo1 "  - [$size] Mailboxes informed in file		[$InputFile]" "white"
-MessageInfo1 "  - [$x] Mailboxes were found successfully	[$OutputValidUsers]" "green"
-MessageInfo1 "  - [$y] Mailboxes not found			[$OutputInvalidUsers]" "red"
+MessageInfo1 "  - [$size] Mailboxes informed in file $file" "white"
+MessageInfo1 "  - [$x] Mailboxes were found successfully." "green"
+MessageInfo1 "  - [$y] Mailboxes doesn't exist." "red"
 write-host

@@ -13,16 +13,28 @@
 	The list of users must be UNICODE with "mail" on the first line
 
 #>
+cls 
+# Import modules
+#import-module msonline
+#connect-msolservice 
 
 # Variables / Time slot configuration
 
 [Int] $intSent = $intRec = $Sent = $received = 0
-$datestart = (get-date '00:00').tostring("yyyy-MM-dd HH:mm")
-$dateend = (get-date '06:00').tostring("yyyy-MM-dd HH:mm")
+$datestart = (get-date '06:00').tostring("yyyy-MM-dd HH:mm")
+$dateend = (get-date '08:00').tostring("yyyy-MM-dd HH:mm")
 
-$Input =import-csv ".\inputlist.csv"
-$output = new-item -type file -name "MonitoringReport-$(get-date -f yyyy.MM.ddTHH.mm.ss).csv"
-add-content "Mail; DateStart; DateEnd; Sent; Received" -path $output
+# Move old files, create new report
+write-host -foreground white "+ Old file renamed"
+$curDateTime = Get-Date -Format yyyyMMdd-HHmmss
+Get-ChildItem $Path "MonitoringReport06h-08h.csv" -Recurse | Rename-Item -NewName {$_.Basename + '_' + $curDateTime + $_.Extension }
+write-host -foreground white "- File renamed successfully!"
+Move-Item "MonitoringReport06h-08h*" -Destination .\06h-08h\
+write-host -foreground white "- File moved corredtly to .\06h-08h\"
+
+$output = new-item -type file -name "MonitoringReport06h-08h.csv"
+$Input = import-csv ".\inputlist.csv"
+add-content "Department; Country; City; DateStart; DateEnd; Sent; Received" -path $output
 
 $total = $input.count
 Write-host
@@ -49,7 +61,13 @@ $input | foreach{
 	Write-host -foreground red $mail -nonewline
 	Get-MessageTrace -senderaddress $mail -startdate $datestart -enddate $dateend | ForEach { $Sent++ }
 	Get-MessageTrace -recipientaddress $mail -startdate $datestart -enddate $dateend | ForEach { $Received++ }
-	add-content "$mail; $datestart; $dateend; $Sent; $Received" -path $output
+	#$department = get-aduser $mail -properties * | select-object -expandproperty department
+	#$city = get-aduser $mail -properties * | select-object -expandproperty city
+	$UPN = get-mailbox $mail | select-object -expandproperty UserPrincipalName
+	$department = get-msoluser -UserPrincipalName $UPN | select-object -expandproperty department
+	$city = get-msoluser -UserPrincipalName $UPN | select-object -expandproperty city
+	$country = get-msoluser -UserPrincipalName $UPN | select-object -expandproperty country
+	add-content "$department; $country; $city; $datestart; $dateend; $Sent; $Received" -path $output
 	Write-host -foreground green " SUCCESS!"
 	$sent = $received = 0
 }
@@ -65,14 +83,14 @@ Write-host -foreground White "+ Sending report..." -nonewline
 # Send mail information
 
 $param = @{
-    SmtpServer = 'smtpserver.domain.com'
-    From = 'noreply@domain.com'
-    To = 'admin1@domain.com', 'admin2@domain.com'
-    Subject = "Monitoring Report from " + $datestart + " to " + $dateend
-    Body = "Hi,<br /> Please check the report from <b> " + $datestart + "</b> to <b>" + $dateend + "</b> in attachment <br /> Report generated automatically in " + $total + " users." 
-    Attachments = $output
+	SmtpServer = 'BHZ-APP-SMTP01.bms.com.br'
+	From = 'noreply@arcelormittal.com'
+	To = 'guilherme.lima@wipro.com'#, 'RASHEED.KHAN-PARTNER@ARCELORMITTAL.COM'
+	Subject = "Monitoring Report from " + $datestart + " to " + $dateend
+	Body = "Hi,<br /> Please check the report from <b> " + $datestart + "</b> to <b>" + $dateend + "</b> in attachment <br /> Report generated automatically in " + $total + " users." 
+	Attachments = $output
 }
 
-Send-MailMessage @param -bodyashtml
+#Send-MailMessage @param -bodyashtml
 Write-host -foreground Green " SUCCESS!"
 Write-host 
