@@ -1,0 +1,22 @@
+id; Date; Mail; Country; City; Department; sent00h06h; received00h06h; Sent06h08h; Received06h08h; Sent08h18h; Received08h18h; Sent18h20h; Received18h20h; Sent20h22h; Received20h22h; Sent22h24h; Received22h24h
+1; 2019-10-15;user1@domain.com; France; MARDYCK;x;0;0;0;0;60;61;10;20;15;17;0;0
+1; 2019-10-16;user1@domain.com; France; MARDYCK;x;0;0;0;0;28;43;23;18;4;11;0;0
+1; 2019-10-17;user1@domain.com; France; MARDYCK;x;0;0;0;0;61;63;36;24;13;19;19;11
+1; 2019-10-18;user1@domain.com; France; MARDYCK;x;0;1;0;0;120;66;46;29;0;1;4;2
+1; 2019-10-19;user1@domain.com; France; MARDYCK;x;0;0;0;0;0;0;0;0;0;0;0;0
+1; 2019-10-20;user1@domain.com; France; MARDYCK;x;0;0;0;0;0;0;2;0;0;0;0;0
+1; 2019-10-21;user1@domain.com; France; MARDYCK;x;0;0;0;0;46;41;8;7;14;17;0;0
+2; 2019-10-15;user2@domain.com; FRANCE; GRANDE SYNTHE;y;0;0;0;0;12;37;2;8;4;8;0;1
+2; 2019-10-16;user2@domain.com; FRANCE; GRANDE SYNTHE;y;0;0;0;0;28;27;12;15;9;1;0;0
+2; 2019-10-17;user2@domain.com; FRANCE; GRANDE SYNTHE;y;0;2;0;0;76;42;10;8;4;2;0;1
+2; 2019-10-18;user2@domain.com; FRANCE; GRANDE SYNTHE;y;0;0;0;1;32;47;29;23;0;1;0;0
+2; 2019-10-19;user2@domain.com; FRANCE; GRANDE SYNTHE;y;0;0;0;0;0;1;0;0;0;0;0;0
+2; 2019-10-20;user2@domain.com; FRANCE; GRANDE SYNTHE;y;0;0;0;0;0;0;0;0;0;0;0;0
+2; 2019-10-21;user2@domain.com; FRANCE; GRANDE SYNTHE;y;0;1;0;1;80;31;30;17;10;6;2;1
+3; 2019-10-15;user3@domain.com; France; FLORANGE;z;5;1;0;0;107;96;10;35;10;23;0;1
+3; 2019-10-16;user3@domain.com; France; FLORANGE;z;0;4;0;0;29;66;33;20;0;16;0;2
+3; 2019-10-17;user3@domain.com; France; FLORANGE;z;0;1;0;0;122;112;24;31;21;18;30;3
+3; 2019-10-18;user3@domain.com; France; FLORANGE;z;0;1;0;0;56;120;5;42;16;16;10;2
+3; 2019-10-19;user3@domain.com; France; FLORANGE;z;2;1;0;0;30;8;1;0;0;0;0;0
+3; 2019-10-20;user3@domain.com; France; FLORANGE;z;0;0;0;0;2;1;0;0;0;0;0;0
+3; 2019-10-21;user3@domain.com; France; FLORANGE;z;0;0;0;1;76;67;22;27;2;12;4;9

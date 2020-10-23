@@ -5,7 +5,8 @@ $desc = @"
   WEBSITE      : http://solucoesms.com.br
   WEBSITE2     : http://github.com/guilhermelimait
   LINKEDIN     : https://www.linkedin.com/in/guilhermelimait/
-  DESCRIPTION  : This script was made to insert the extension attribute 9 on all users informed in the file "userslist.csv"
+  DESCRIPTION  : Standard signature to be added to personal scripts
 "@
 Write-host $desc -ForegroundColor DarkCyan
 Write-Host
+
