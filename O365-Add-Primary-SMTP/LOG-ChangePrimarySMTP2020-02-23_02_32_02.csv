@@ -1,0 +1,2 @@
+Count;Before;After
+1;smtp:user1@domain.com;smtp:user1@domain.com smtp:user1@domain1.onmicrosoft.com SMTP:user1@domain2.com smtp:user1@domain3.com.br

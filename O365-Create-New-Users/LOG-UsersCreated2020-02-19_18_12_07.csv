@@ -1,0 +1,2 @@
+UserPrincipalName;DisplayName;FirstName;LastName;UsageLocation;Licenses
+user1@domain.onmicrosoft.com;user1;user;1;BR;Microsoft.Online.Administration.UserLicense

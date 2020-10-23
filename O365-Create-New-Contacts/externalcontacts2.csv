@@ -1,0 +1,2 @@
+Name,FirstName,LastName,InternalEmailaddress,ExternalEmailAddress1,ExternalEmailAddress,ForwardingSmtpAddress
+User 1,user,1,user1@domain.onmicrosoft.com,user1@domain.com,user1@google.com.br,user1@google.com.br

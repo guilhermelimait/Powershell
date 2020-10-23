@@ -1,0 +1,2 @@
+Count,InternalEmailaddress,ForwardingSmtpAddress,ForwardingAddress,DeliverToMailboxAndForward
+1,user1@domain.onmicrosoft.com,smtp:user1@google.com.br,,True
