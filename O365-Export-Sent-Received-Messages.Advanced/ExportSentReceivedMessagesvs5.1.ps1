@@ -183,9 +183,9 @@ $Messagebody = @"
 MessageInfo1 " + Sending Mail results..." Darkcyan
 
 $param = @{
-	SmtpServer = 'BHZ-APP-SMTP01.bms.com.br'
-	From = 'noreply@arcelormittal.com'
-	To = 'guilherme.lima@wipro.com', 'RASHEED.KHAN-PARTNER@ARCELORMITTAL.COM'
+	SmtpServer = 'smtpserver.domain.com'
+	From = 'noreply@domain.com'
+	To = 'admin1@domain.com', 'admin2@domain.com'
 	Subject = "Monitoring Report from " + $datestart + " to " + $dateend
 	Body = $Messagebody
 	#Body = "Hi,<br /> Please check the report from <b> " + $datestart + "</b> to <b>" + $dateend + "</b> in attachment <br /> Report generated automatically in " + $total + " users." 
