@@ -1,9 +1,9 @@
 Clear-Host
 $Filename = ".csv"
-$Origin = "HamperDelivery (6).csv"
+$Origin = "HamperDelivery (7).csv"
 $FilePath = "C:\Users\ITLimaGu\OneDrive - NESTLE\Hampers"
 
-$NumberOfFiles = 3
+$NumberOfFiles = 20
 $Skip=1
 $FinalRow=$NumberOfRows=150
 #$FinalRow=150

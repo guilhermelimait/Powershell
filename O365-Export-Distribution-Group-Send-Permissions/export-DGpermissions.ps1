@@ -38,7 +38,7 @@ $inputcontent | set-content $output
 $body = get-content($Output) -delimiter "\n"
 $param = @{
     SmtpServer = 'mail.domain.com'
-    From = 'distributiongrouppermissions@domain.com'
+    From = 'distributiongrouppermissions@arcelormittal.com'
     To = 'admin1@domain.com'
     Subject = 'Distribution Group Permissions'
     Body = $body
