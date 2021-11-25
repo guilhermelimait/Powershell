@@ -9,7 +9,7 @@ cls
 Function ConnectToO365 {
 	$credential = Get-Credential
 	Connect-MsolService -Credential $credential
-	Connect-EXOPSSession -UserPrincipalName "adm-glima@arcelormittal.com"
+	Connect-EXOPSSession -UserPrincipalName "admin@domain.com"
 	import-module msonline
 }
 

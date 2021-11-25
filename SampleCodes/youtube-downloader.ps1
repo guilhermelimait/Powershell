@@ -1,7 +1,7 @@
 # Version 0.3
 clear-host
 $channelname = "GuilhermeLimait"#Read-Host "What is the name of the channel? (This is the username of the channel uploader)"
-$key = "AIzaSyBFboGP7KcIa1kH9tniXTiLf2Xe4nLngwI"
+$key = "insertkeyhere"
 $file = "C:\dump\$channelname.txt"
 
 Write-host "Remember to "

@@ -129,9 +129,9 @@ Report Information:
 
 write-host $messagebody
 $param = @{
-    SmtpServer = 'BHZ-APP-SMTP01.bms.com.br'
-    From = 'litigationhold@arcelormittal.com'
-    To = 'guilherme.lima@wipro.com', 'diego.silveira@amcontratos.com.br', 'mariya.joseph@wipro.com'
+    SmtpServer = '192.168.0.1'
+    From = 'litigationhold@domain.com'
+    To = 'admin1@domain.com', 'admin2@domain.com', 'admin3@domain.com'
     Subject = 'Litigation Hold Report - Brazil'
     Body = $MessageBody
     Attachments = $MailboxNotFound, $MailboxFound 
