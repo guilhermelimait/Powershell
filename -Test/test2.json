@@ -1,0 +1,35 @@
+{
+    "statusCode": 400,
+    "headers": {
+        "Vary": "Origin",
+        "X-SharePointHealthScore": "1",
+        "X-MS-SPConnector": "1",
+        "X-SP-SERVERSTATE": "ReadOnly=0",
+        "DATASERVICEVERSION": "3.0",
+        "SPClientServiceRequestDuration": "42",
+        "SPRequestGuid": "53ba0706-bc03-4223-84f3-31dc6e5c3bf3",
+        "request-id": "53ba0706-bc03-4223-84f3-31dc6e5c3bf3",
+        "MS-CV": "Bge6UwO8I0KE8zHcblw78w.0",
+        "Strict-Transport-Security": "max-age=31536000",
+        "X-FRAME-OPTIONS": "SAMEORIGIN",
+        "Content-Security-Policy": "frame-ancestors 'self' teams.microsoft.com *.teams.microsoft.com *.skype.com *.teams.microsoft.us local.teams.office.com *.powerapps.com *.yammer.com *.officeapps.live.com *.office.com *.stream.azure-test.net *.microsoftstream.com *.dynamics.com;",
+        "MicrosoftSharePointTeamServices": "16.0.0.21924",
+        "X-Content-Type-Options": "nosniff",
+        "X-MS-InvokeApp": "1; RequireReadOnly",
+        "Timing-Allow-Origin": "*",
+        "x-ms-apihub-cached-response": "true",
+        "Cache-Control": "max-age=0, private",
+        "Date": "Fri, 24 Dec 2021 14:17:27 GMT",
+        "P3P": "CP=\"ALL IND DSP COR ADM CONo CUR CUSo IVAo IVDo PSA PSD TAI TELo OUR SAMo CNT COM INT NAV ONL PHY PRE PUR UNI\"",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Content-Length": "232",
+        "Content-Type": "application/json",
+        "Expires": "Thu, 09 Dec 2021 14:17:28 GMT",
+        "Last-Modified": "Fri, 24 Dec 2021 14:17:28 GMT"
+    },
+    "body": {
+        "status": 400,
+        "message": "Column 'InstallType' does not exist. It may have been deleted by another user.\r\nclientRequestId: 53ba0706-bc03-4223-84f3-31dc6e5c3bf3\r\nserviceRequestId: 53ba0706-bc03-4223-84f3-31dc6e5c3bf3"
+    }
+}
