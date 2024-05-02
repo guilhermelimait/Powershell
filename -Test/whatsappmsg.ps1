@@ -1,6 +1,6 @@
 
 
-$number = "+393665802655"
+$number = "+9999999999999"
 $message = "Howdy, this is a message from PowerShell."
 
 $clientId = "FREE_TRIAL_ACCOUNT"  # No need to change
