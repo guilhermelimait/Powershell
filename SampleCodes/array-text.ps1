@@ -10,3 +10,11 @@ Report Information:
 "@
 cls
 write-host $Messagebody
+
+
+
+$messagebody2 = 'a', 'b', 'c'
+
+foreach ($m in $messagebody2){
+	Write-Host $m
+}
